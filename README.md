@@ -15,7 +15,7 @@ This project implements a comprehensive **Multimodal Authentication and Product 
 
 ## 🏗️ System Architecture
 
-![System Architecture](images/system_architecture.png)
+![System Architecture](Images/system_architecture.png)
 
 The system follows a secure multi-stage authentication flow:
 
@@ -64,7 +64,8 @@ Multimodal_Assignment/
 │   ├── merged_customer_data.csv           # Processed customer data
 │   ├── image_features.csv                 # Extracted image features
 │   └── audio_features.csv                 # Extracted audio features
-├── 🖼️ Images/                            # Facial recognition dataset
+├── 🖼️ Images/                            # Facial recognition dataset & docs
+│   ├── system_architecture.png            # System architecture diagram
 │   ├── member1/ (neutral.jpeg, smiling.jpeg, surprised.jpeg)
 │   ├── member2/ (neutral.jpeg, smiling.jpeg, surprised.jpeg)
 │   └── member3/ (neutral.jpeg, smiling.jpeg, surprised.jpeg)
@@ -72,13 +73,11 @@ Multimodal_Assignment/
 │   ├── member1/ (confirm_1.wav, confirm_2.wav, yes_approve_1.wav, yes_approve_2.wav)
 │   ├── member2/ (confirm_1.wav, confirm_2.wav, yes_approve_1.wav, yes_approve_2.wav)
 │   └── member3/ (confirm_1.wav, confirm_2.wav, yes_approve_1.wav, yes_approve_2.wav)
-├── 🤖 Models/
-│   ├── face_recognition_model.pkl          # Trained face recognition model
-│   ├── voiceprint_verification_model.pkl   # Trained voice verification model
-│   ├── product_recommendation_model.pkl    # Product recommendation model
-│   └── product_label_encoder.pkl          # Label encoder for products
-└── 📸 images/                             # Documentation images
-    └── system_architecture.png            # System architecture diagram
+└── 🤖 Models/
+    ├── face_recognition_model.pkl          # Trained face recognition model
+    ├── voiceprint_verification_model.pkl   # Trained voice verification model
+    ├── product_recommendation_model.pkl    # Product recommendation model
+    └── product_label_encoder.pkl          # Label encoder for products
 ```
 
 ## 🚀 Quick Start
