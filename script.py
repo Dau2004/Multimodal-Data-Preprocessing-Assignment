@@ -23,7 +23,7 @@ from sklearn.preprocessing import StandardScaler
 # Set paths
 IMAGE_DIR = 'Images'
 AUDIO_DIR = 'Audio'
-MODEL_DIR = '.'
+MODEL_DIR = 'Models'
 
 # Load models
 try:
@@ -32,10 +32,10 @@ try:
     
     with open(os.path.join(MODEL_DIR, 'voiceprint_verification_model.pkl'), 'rb') as f:
         voice_model = pickle.load(f)
-    
+
     with open(os.path.join(MODEL_DIR, 'product_recommendation_model.pkl'), 'rb') as f:
         product_model = pickle.load(f)
-    
+
     with open(os.path.join(MODEL_DIR, 'product_label_encoder.pkl'), 'rb') as f:
         label_encoder = pickle.load(f)
         
@@ -47,7 +47,7 @@ except FileNotFoundError as e:
 
 # Load customer data
 try:
-    customer_data = pd.read_csv('merged_customer_data.csv')
+    customer_data = pd.read_csv('Data Files/merged_customer_data.csv')
     print("Customer data loaded successfully!")
 except FileNotFoundError:
     print("Customer data file not found. Please run the data preprocessing notebook first.")
