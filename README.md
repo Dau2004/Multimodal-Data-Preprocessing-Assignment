@@ -15,7 +15,7 @@ This project implements a comprehensive **Multimodal Authentication and Product 
 
 ## 🏗️ System Architecture
 
-![System Architecture](Images/system_architecture.png)
+![System Architecture](Images/System_architecture.png)
 
 The system follows a secure multi-stage authentication flow:
 
