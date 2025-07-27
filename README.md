@@ -15,19 +15,39 @@ This project implements a comprehensive **Multimodal Authentication and Product 
 
 ## 🏗️ System Architecture
 
-```
-User Access Request
-       ↓
-Face Recognition (Confidence > 60%)
-       ↓
-Access to Product Prediction Model
-       ↓
-Voice Verification (Confidence > 70%)
-       ↓
-Identity Matching Verification
-       ↓
-Personalized Product Recommendation
-```
+![System Architecture](images/system_architecture.png)
+
+The system follows a secure multi-stage authentication flow:
+
+### **Stage 1: Facial Recognition**
+- User attempts to access the product prediction model
+- Facial image is processed using OpenCV
+- HOG features and color histograms are extracted
+- Random Forest classifier determines user identity
+- **Threshold**: Minimum 60% confidence required
+
+### **Stage 2: Product Recommendation Generation**
+- If face is recognized, user gains access to prediction model
+- Customer profile is retrieved (engagement score, purchase interest, rating)
+- ML model generates personalized product recommendation
+- **Output**: Product category with confidence score
+
+### **Stage 3: Voice Verification**
+- Prediction must be confirmed through voice sample
+- MFCC features are extracted using Librosa
+- Voice verification model validates the speaker
+- **Threshold**: Minimum 70% confidence required
+
+### **Stage 4: Final Authorization**
+- System ensures face and voice belong to same user
+- If all verifications pass, recommendation is approved and displayed
+- If any stage fails, access is denied with specific error message
+
+### **Security Features:**
+- **Multi-modal authentication** prevents single-point failures
+- **Confidence thresholds** ensure reliable verification
+- **Identity matching** prevents voice spoofing attacks
+- **Real-time processing** for seamless user experience
 
 ## 📁 Project Structure
 
@@ -52,11 +72,13 @@ Multimodal_Assignment/
 │   ├── member1/ (confirm_1.wav, confirm_2.wav, yes_approve_1.wav, yes_approve_2.wav)
 │   ├── member2/ (confirm_1.wav, confirm_2.wav, yes_approve_1.wav, yes_approve_2.wav)
 │   └── member3/ (confirm_1.wav, confirm_2.wav, yes_approve_1.wav, yes_approve_2.wav)
-└── 🤖 Models/
-    ├── face_recognition_model.pkl          # Trained face recognition model
-    ├── voiceprint_verification_model.pkl   # Trained voice verification model
-    ├── product_recommendation_model.pkl    # Product recommendation model
-    └── product_label_encoder.pkl          # Label encoder for products
+├── 🤖 Models/
+│   ├── face_recognition_model.pkl          # Trained face recognition model
+│   ├── voiceprint_verification_model.pkl   # Trained voice verification model
+│   ├── product_recommendation_model.pkl    # Product recommendation model
+│   └── product_label_encoder.pkl          # Label encoder for products
+└── 📸 images/                             # Documentation images
+    └── system_architecture.png            # System architecture diagram
 ```
 
 ## 🚀 Quick Start
